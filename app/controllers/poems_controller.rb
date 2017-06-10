@@ -1,9 +1,9 @@
-class PoemsController < ApplicationController
+class PoemsController < OpenReadController
   before_action :set_poem, only: [:show, :update, :destroy]
 
   # GET /poems
   def index
-    @poems = Poem.all
+    @poems = current_user.poems
 
     render json: @poems
   end
@@ -15,7 +15,7 @@ class PoemsController < ApplicationController
 
   # POST /poems
   def create
-    @poem = Poem.new(poem_params)
+    @poem = current_user.poems.build(poem_params)
 
     if @poem.save
       render json: @poem, status: :created, location: @poem
@@ -36,12 +36,13 @@ class PoemsController < ApplicationController
   # DELETE /poems/1
   def destroy
     @poem.destroy
+    head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poem
-      @poem = Poem.find(params[:id])
+      @poem = current_user.poems.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
