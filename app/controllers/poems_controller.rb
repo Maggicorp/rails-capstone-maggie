@@ -47,6 +47,6 @@ class PoemsController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def poem_params
-      params.require(:poem).permit(:title, :firstline, :secondline, :thirdline, :user_id)
+      params.require(:poem, :firstline, :secondline, :thirdline, :user_id).permit(:title)
     end
 end
