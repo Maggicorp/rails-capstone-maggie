@@ -6,7 +6,6 @@ class ExamplesController < OpenReadController
   # GET /examples.json
   def index
     @examples = Example.all
-
     render json: @examples
   end
 

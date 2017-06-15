@@ -1,6 +1,12 @@
 class PoemsController < OpenReadController
   before_action :set_poem, only: [:show, :update, :destroy]
 
+# GET / published
+  def published
+    @examples = Example.all
+    render json: @examples
+  end
+
   # GET /poems
   def index
     @poems = current_user.poems
