@@ -3,8 +3,8 @@ class PoemsController < OpenReadController
 
 # GET / published
   def published
-    @examples = Example.all
-    render json: @examples
+    @poems = Poem.where(:published => true)
+    render json: @poems
   end
 
   # GET /poems
