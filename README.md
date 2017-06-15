@@ -10,7 +10,7 @@ Repo Front End - https://github.com/Maggicorp/ember-capstone-maggie
 
 Deployed Back End - https://lit-citadel-67931.herokuapp.com/
 
-Repo Back End - https://github.com/Maggicorp/ember-capstone-maggie
+Repo Back End - https://github.com/Maggicorp/rails-capstone-maggie
 
 Technologies Used
 Ruby on Rails
