@@ -3,6 +3,7 @@ class PoemsController < OpenReadController
 
 # GET / published
   def published
+    # @poems = Poem.all
     @poems = Poem.where(:published => true)
     render json: @poems
   end
@@ -53,6 +54,6 @@ class PoemsController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def poem_params
-      params.require(:poem).permit(:title, :firstline, :secondline, :thirdline, :user_id)
+      params.require(:poem).permit(:title, :firstline, :secondline, :thirdline, :published, :user_id)
     end
 end
